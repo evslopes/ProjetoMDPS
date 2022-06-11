@@ -23,7 +23,6 @@ public class AcessoController {
     @Autowired
     private UsuarioService usuarioService;
 
-
     @GetMapping(value = "/")
     public String telaHome(Model model) {
 
