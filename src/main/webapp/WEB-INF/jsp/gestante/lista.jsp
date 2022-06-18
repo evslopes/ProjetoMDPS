@@ -47,59 +47,33 @@
         <c:if test="${not empty usuarioLista}">
             <table class="table table-striped">
                 <thead>
-                <tr class="text-center">
+                <tr>
                     <th>Nome</th>
                     <th>E-mail</th>
-                    <th>Tipo</th>
-                    <th>Administrador</th>
-                    <th>
-                        <c:if test="${user.admin}">
-                            <c:if test="${user.id != u.id}">
-                                Ação
-                            </c:if>
-                        </c:if>
-                    </th>
+                    <th>Admin</th>
+<%--                    <th>Eventos</th>--%>
+<%--                    <th>Empresas</th>--%>
+<%--                    <th>Participantes</th>--%>
+<%--                    <th>Palestras</th>--%>
+                    <th></th>
                 </tr>
                 </thead>
-                <tbody class="text-center">
+                <tbody>
                 <c:forEach var="u" items="${usuarioLista}">
                     <tr>
                         <td>${u.nome}</td>
                         <td>${u.email}</td>
-
-                        <td>${u.tipo}</td>
-
-<%--                        <td>--%>
-<%--                            <c:if test="${u.tipo.equals('G')}">--%>
-<%--                                Gestante--%>
-<%--                            </c:if>--%>
-<%--                            <c:if test="${u.tipo.equals('D')}">--%>
-<%--                                Doula--%>
-<%--                            </c:if>--%>
-
-<%--                        </td>--%>
-
-                        <td>
-                            <c:if test="${u.admin}">
-                                Sim
-                            </c:if>
-                            <c:if test="${!u.admin}">
-                                Não
-                            </c:if>
-
-                        </td>
-
+                        <td>${u.admin}</td>
+<%--                        <td>${u.eventos.size()}</td>--%>
+<%--                        <td>${u.empresas.size()}</td>--%>
+<%--                        <td>${u.participantes.size()}</td>--%>
+<%--                        <td>${u.palestras.size()}</td>--%>
                         <td>
                             <c:if test="${user.admin}">
                                 <c:if test="${user.id != u.id}">
                                     <a href="/usuario/${u.id}/excluir">Excluir</a>
                                 </c:if>
-                                <c:if test="${user.id == u.id}">
-                                   -
-                                </c:if>
                             </c:if>
-
-
                         </td>
                     </tr>
                 </c:forEach>

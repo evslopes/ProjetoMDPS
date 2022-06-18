@@ -1,7 +1,6 @@
 package br.edu.infnet.mdps.mdps.model.domain;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 public class Usuario {
@@ -13,6 +12,11 @@ public class Usuario {
     private String email;
     private String senha;
     private boolean admin;
+
+    private Character tipo;
+    public static final char ACOMPANHANTE = 'A';
+    public static final char DOULA = 'D';
+    public static final char GESTANTE = 'G';
 
     public Usuario() {
     }
@@ -58,4 +62,11 @@ public class Usuario {
     }
 
 
+    public Character getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(Character tipo) {
+        this.tipo = tipo;
+    }
 }

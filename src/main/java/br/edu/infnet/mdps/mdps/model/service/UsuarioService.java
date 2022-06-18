@@ -36,4 +36,13 @@ public class UsuarioService {
     public Integer obterQtde(){
         return (int) usuarioRepository.count();
     }
+    public Integer obterQtdeDoulas(){
+        return usuarioRepository.obterQtdeDoulas();
+    }
+
+    public Integer obterQtdeGestantes(){
+        return usuarioRepository.obterQtdeGestantes();
+    }
+
+
 }

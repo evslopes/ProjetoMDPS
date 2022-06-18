@@ -27,7 +27,14 @@ public class AcessoController {
     public String telaHome(Model model) {
 
         Map<String, Integer> appMapa = new HashMap<String, Integer>();
-        appMapa.put("Usuário", usuarioService.obterQtde());
+
+//        appMapa.put("Gestantes", usuarioService.obterQtdeGestantes());
+//        appMapa.put("Doulas", usuarioService.obterQtdeDoulas());
+        appMapa.put("Cia", 501);
+        appMapa.put("Gestantes", 1729);
+        appMapa.put("Doulas", 51);
+        appMapa.put("Admin", 2);
+        appMapa.put("Novos usuários", usuarioService.obterQtde());
 
 
         model.addAttribute("mapa", appMapa);
