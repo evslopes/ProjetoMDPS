@@ -1,28 +1,28 @@
 package br.edu.infnet.mdps.mdps.model.domain;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
+@Entity
 public class Endereco {
     @Id
-    @Column(name = "id", nullable = false)
+    @Column(name = "idGestante", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer idEndereco;
     private String CEP;
     private String rua;
     private String bairro;
     private String cidade;
     private String UF;
-    private Integer userId;
 
-    public Integer getId() {
-        return id;
+    @OneToOne
+    private Usuario usuario;
+
+    public Integer getidEndereco() {
+        return idEndereco;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setidEndereco(Integer idEndereco) {
+        this.idEndereco = idEndereco;
     }
 
     public String getCEP() {
@@ -65,11 +65,13 @@ public class Endereco {
         this.UF = UF;
     }
 
-    public Integer getUserId() {
-        return userId;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 }
+
+

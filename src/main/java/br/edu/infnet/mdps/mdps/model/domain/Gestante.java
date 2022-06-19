@@ -1,13 +1,21 @@
 package br.edu.infnet.mdps.mdps.model.domain;
 
-import java.util.ArrayList;
+import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
 
-public class Gestante extends Usuario{
+
+@Entity
+public class Gestante{
+
+    @Id
+    @Column(name = "idGestante", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idGestante;
     private Date DPP; //Data Provável do Parto
-    private List<Doula> Doulandas = new ArrayList<>();
+
+    @ManyToOne
+    @JoinColumn(name = "idDoula")
+    private Doula Doula;
 
     public Gestante() {
     }
@@ -28,11 +36,11 @@ public class Gestante extends Usuario{
         this.DPP = DPP;
     }
 
-    public List<Doula> getDoulandas() {
-        return Doulandas;
+    public br.edu.infnet.mdps.mdps.model.domain.Doula getDoula() {
+        return Doula;
     }
 
-    public void setDoulandas(List<Doula> doulandas) {
-        Doulandas = doulandas;
+    public void setDoula(br.edu.infnet.mdps.mdps.model.domain.Doula doula) {
+        Doula = doula;
     }
 }

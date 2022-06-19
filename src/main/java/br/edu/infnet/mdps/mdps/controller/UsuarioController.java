@@ -1,5 +1,7 @@
 package br.edu.infnet.mdps.mdps.controller;
 
+import br.edu.infnet.mdps.mdps.model.domain.Doula;
+import br.edu.infnet.mdps.mdps.model.domain.Gestante;
 import br.edu.infnet.mdps.mdps.model.domain.Usuario;
 import br.edu.infnet.mdps.mdps.model.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,4 +52,18 @@ public class UsuarioController {
 
         return telaLista(model);
     }
+
+//    private String obterTipoUsuario(Usuario usuario) {
+//        String tipoUsuario = null;
+//
+//        if(usuario instanceof Gestante) {
+//            tipoUsuario = "gestante";
+//        }else if (usuario instanceof Doula) {
+//            tipoUsuario = "doula";
+//        }else {
+//            tipoUsuario = "Administrador";
+//        }
+//
+//        return tipoUsuario;
+//    }
 }

@@ -1,11 +1,21 @@
 package br.edu.infnet.mdps.mdps.model.domain;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Doula extends Usuario{
+@Entity
+public class Doula{
+    @Id
+    @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idDoula;
+    @OneToOne
+    @JoinColumn(name = "idEndereco")
     private Endereco endereco;
+
+    @OneToMany(cascade = CascadeType.REMOVE, orphanRemoval = true)
+    @JoinColumn(name = "idGestante")
     private List<Gestante> Doulandas = new ArrayList<>();
 
     public Doula() {

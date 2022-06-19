@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta name="description" content=""/>
     <meta name="author" content=""/>
-    <title>Usuários MDPS</title>
+    <title>Controle de Presença</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="../../assets/favicon.ico"/>
     <!-- Font Awesome icons (free version)-->
@@ -24,10 +24,10 @@
 <c:import url="/WEB-INF/jsp/menu.jsp"/>
 <!-- Masthead-->
 <header class="masthead bg-primary text-white text-center">
-    <div class="container d-flex align-items-center flex-column">
+    <div class="container d-flex align-items-center">
         <div class="container">
 
-            <h1>Informações do sistema</h1>
+            <h1>Lista de gestantes</h1>
 
             <c:if test="${not empty mensagem}">
                 <div class="alert alert-success">
@@ -35,56 +35,43 @@
                 </div>
             </c:if>
 
-            <c:if test="${not empty usuarioLista}">
-                <h2>${usuarioLista.size()} usuários cadastrados</h2>
-            </c:if>
-
         </div>
+
+    </div>
 </header>
 <!-- Portfolio Section-->
+
 <section class="page-section portfolio" id="portfolio">
     <div class="container">
-        <c:if test="${not empty usuarioLista}">
+
+        <c:if test="${not empty gestanteLista}">
             <table class="table table-striped">
                 <thead>
                 <tr>
                     <th>Nome</th>
-                    <th>E-mail</th>
-                    <th>Admin</th>
-<%--                    <th>Eventos</th>--%>
-<%--                    <th>Empresas</th>--%>
-<%--                    <th>Participantes</th>--%>
-<%--                    <th>Palestras</th>--%>
+                    <th>Email</th>
                     <th></th>
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach var="u" items="${usuarioLista}">
+                <c:forEach var="u" items="${gestanteLista}">
                     <tr>
-                        <td>${u.nome}</td>
-                        <td>${u.email}</td>
-                        <td>${u.admin}</td>
-<%--                        <td>${u.eventos.size()}</td>--%>
-<%--                        <td>${u.empresas.size()}</td>--%>
-<%--                        <td>${u.participantes.size()}</td>--%>
-<%--                        <td>${u.palestras.size()}</td>--%>
-                        <td>
-                            <c:if test="${user.admin}">
-                                <c:if test="${user.id != u.id}">
+                        <c:if test="${u.tipo.toString() == 'G'.toString()}">
+                            <td>${u.nome}</td>
+                            <td>${u.email}</td>
+                            <td>
+                                <c:if test="${user.admin}">
                                     <a href="/usuario/${u.id}/excluir">Excluir</a>
                                 </c:if>
-                            </c:if>
-                        </td>
+                            </td>
+                        </c:if>
                     </tr>
                 </c:forEach>
                 </tbody>
-                <tfoot>
-                <tr>
-                </tr>
-                </tfoot>
+
             </table>
         </c:if>
-    </div>
+
     </div>
 </section>
 
@@ -101,5 +88,9 @@
 <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 </body>
 </html>
+
+
+
+
 
 
