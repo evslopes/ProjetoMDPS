@@ -17,6 +17,17 @@ public class Endereco {
     @OneToOne
     private Usuario usuario;
 
+    private void adcionar(Endereco endereco){
+    }
+
+    private void atualizar(Endereco endereco){
+
+    }
+
+    private void excluir(Endereco endereco){
+
+    }
+
     public Integer getidEndereco() {
         return idEndereco;
     }

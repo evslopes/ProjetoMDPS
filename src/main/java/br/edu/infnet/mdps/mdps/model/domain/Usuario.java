@@ -14,11 +14,20 @@ public class Usuario {
     private boolean admin;
 
     private Character tipo;
+
     public static final char ACOMPANHANTE = 'A';
     public static final char DOULA = 'D';
     public static final char GESTANTE = 'G';
 
     public Usuario() {
+    }
+
+    public void Atualizar(){
+        return;
+    }
+
+    public Usuario exportarDados(){
+        return this;
     }
 
     public Integer getId() {

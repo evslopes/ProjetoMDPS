@@ -5,11 +5,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Doula{
+public class Doula extends Usuario{
     @Id
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idDoula;
+
+    private String especializacao;
+
+    private boolean disponibilidade;
+
     @OneToOne
     @JoinColumn(name = "idEndereco")
     private Endereco endereco;
@@ -19,6 +24,14 @@ public class Doula{
     private List<Gestante> Doulandas = new ArrayList<>();
 
     public Doula() {
+    }
+
+    private boolean disponibilizarAtendimento(){
+        return true;
+    }
+
+    private void listarGestantes(){
+        getDoulandas();
     }
 
     public Integer getIdDoula() {
@@ -43,5 +56,21 @@ public class Doula{
 
     public void setDoulandas(List<Gestante> doulandas) {
         Doulandas = doulandas;
+    }
+
+    public String getEspecializacao() {
+        return especializacao;
+    }
+
+    public void setEspecializacao(String especializacao) {
+        this.especializacao = especializacao;
+    }
+
+    public boolean isDisponibilidade() {
+        return disponibilidade;
+    }
+
+    public void setDisponibilidade(boolean disponibilidade) {
+        this.disponibilidade = disponibilidade;
     }
 }
