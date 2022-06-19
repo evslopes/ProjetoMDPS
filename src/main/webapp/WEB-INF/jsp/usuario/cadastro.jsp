@@ -66,7 +66,7 @@
                                    id="administrador" value="true"
                             >
                             <label class="form-check-label" for="administrador">
-                                Administrador
+                                 Desejo ser admin
                             </label>
                         </div>
                     </div>
